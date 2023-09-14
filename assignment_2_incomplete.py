@@ -59,7 +59,7 @@ def newyorker_caption_contest_idefics(args):
         prompts.append(ele)
         
         # I'm saving images to `out`` to be able to see them in the output folder
-        val_inst['image'].save(f"out/{val_inst['instance_id']}.jpg")
+        val_inst['image'].save(f"./out/{val_inst['instance_id']}.jpg")
 
     # --batched mode
     inputs = processor(prompts, add_end_of_utterance_token=False, return_tensors="pt").to(device)
@@ -78,13 +78,13 @@ def newyorker_caption_contest_idefics(args):
         nyc_data_five_val[i]['generated_idefics']=gen_expl
 
     # ======================> You will need to `mkdir out`
-    filename = 'out/val.jsonl'
+    filename = './out/val.jsonl'
     with jsonlines.open(filename, mode='w') as writer:
         for item in nyc_data_five_val:
             del item['image']
             writer.write(item)
 
-    filename = 'out/train.jsonl'
+    filename = './out/train.jsonl'
     with jsonlines.open(filename, mode='w') as writer:
         for item in nyc_data_train_two:
             del item['image']
@@ -94,12 +94,12 @@ def newyorker_caption_contest_idefics(args):
 def newyorker_caption_contest_llama2(args): 
     print ("Loading data")
     nyc_data_five_val = []
-    with jsonlines.open('out/val.jsonl') as reader:
+    with jsonlines.open('./out/val.jsonl') as reader:
         for obj in reader:
             nyc_data_five_val.append(obj)
 
     nyc_data_train_two = []
-    with jsonlines.open('out/train.jsonl') as reader:
+    with jsonlines.open('./out/train.jsonl') as reader:
         for obj in reader:
             nyc_data_train_two.append(obj)
 
