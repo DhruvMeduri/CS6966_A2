@@ -47,13 +47,13 @@ def newyorker_caption_contest_idefics(args):
         # Each instace has a key 'image' that contains the PIL Image. You will give that to the model as input to "show" it the image instead of an url to the image jpg file.
         
         ele =  [
-            "Image:", nyc_data_train_two[0]['image'].show(), "Caption:",nyc_data_train_two[0]['caption_choices'],"<end_of_utterance>",
+            "Image:", nyc_data_train_two[0]['image'], "Caption:",nyc_data_train_two[0]['caption_choices'],"<end_of_utterance>",
             "\nAssistant:",nyc_data_train_two[0]['target'],"<end_of_utterance>",
 
-            "Image:", nyc_data_train_two[1]['image'].show(), "Caption:",nyc_data_train_two[1]['caption_choices'],"<end_of_utterance>",
+            "Image:", nyc_data_train_two[1]['image'], "Caption:",nyc_data_train_two[1]['caption_choices'],"<end_of_utterance>",
             "\nAssistant:",nyc_data_train_two[1]['target'],"<end_of_utterance>",
 
-            "Image:", val_inst['image'].show(), "Caption:",val_inst['caption_choices'],"<end_of_utterance>",
+            "Image:", val_inst['image'], "Caption:",val_inst['caption_choices'],"<end_of_utterance>",
             "\nAssistant:",
         ]
         prompts.append(ele)
