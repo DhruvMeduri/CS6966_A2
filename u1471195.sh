@@ -22,4 +22,4 @@ export HF_DATASETS_CACHE="/scratch/general/vast/u1471195/huggingface_cache"
 
 OUT_DIR=/scratch/general/vast/u1471195/cs6966/assignment2/models
 mkdir -p ${OUT_DIR}
-python ~/CS6966_A2/assignment2_incomplete.py --output_dir ${OUT_DIR} --seed 1471195
+python ~/CS6966_A2/assignment_2_incomplete.py --output_dir ${OUT_DIR} --seed 1471195
