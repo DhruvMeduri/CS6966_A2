@@ -48,7 +48,7 @@ def newyorker_caption_contest_idefics(args):
         
         ele =  [
             "Image:", nyc_data_train_two[0]['image'], "Caption:",nyc_data_train_two[0]['caption_choices'],"<end_of_utterance>",
-            "\nAssistant:",nyc_data_train_two[0]['target'],"<end_of_utterance>",
+            "\nAssistant: The explanation of the joke is -",nyc_data_train_two[0]['target'],"<end_of_utterance>",
 
             "Image:", nyc_data_train_two[1]['image'], "Caption:",nyc_data_train_two[1]['caption_choices'],"<end_of_utterance>",
             "\nAssistant:",nyc_data_train_two[1]['target'],"<end_of_utterance>",
@@ -137,7 +137,13 @@ def newyorker_caption_contest_llama2(args):
 
     for i, val_inst in enumerate(nyc_data_five_val):         
         # ======================> ADD YOUR CODE TO DEFINE A PROMPT WITH TWO TRAIN EXAMPLES/DEMONSTRATIONS/SHOTS <======================
-        prompt = "your prompt"
+        prompt = [
+               '<s>[INST]<<SYS>>',
+               ' \n You will be provided with a description of a scene along with a caption. The scene and the caption represent a joke. You are expected to explain the humour of this joke.' 
+               '\n <</SYS>> \n',
+                nyc_data_train_two[0]['input'],' [/INST] ',nyc_data_train_two[0]['target'], ' <\s><s> [INST] ' , nyc_data_train_two[1]['input'],' [/INST] ',nyc_data_train_two[0]['target'],' <\s><s> [INST] ', val_inst['input'],' [/INST] '
+
+        ]
 
         sequences = pipeline(
             prompt,
