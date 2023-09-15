@@ -151,7 +151,7 @@ def newyorker_caption_contest_llama2(args):
             eos_token_id=tokenizer.eos_token_id,
             max_length=1024,
         )
-        print(sequences)
+        print(sequences[0]['generated_text'])
         gen_expl = sequences[0]['generated_text'].split("/INST] ")[-1]
         nyc_data_five_val[i]['generated_llama2']=gen_expl
 
