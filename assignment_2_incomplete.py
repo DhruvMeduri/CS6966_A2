@@ -137,13 +137,7 @@ def newyorker_caption_contest_llama2(args):
 
     for i, val_inst in enumerate(nyc_data_five_val):         
         # ======================> ADD YOUR CODE TO DEFINE A PROMPT WITH TWO TRAIN EXAMPLES/DEMONSTRATIONS/SHOTS <======================
-        prompt = [
-               '<s>[INST]<<SYS>>',
-               ' \n You will be provided with a description of a scene along with a caption. The scene and the caption represent a joke. You are expected to explain the humour of this joke.' 
-               '\n <</SYS>> \n',
-                nyc_data_train_two[0]['input'], " [/INST] ",nyc_data_train_two[0]['target']," <\s><s> [INST] ", nyc_data_train_two[1]['input']," [/INST] ",nyc_data_train_two[0]['target']," <\s><s> [INST] ", val_inst['input']," [/INST] ",
-
-        ]
+        prompt =  "<s>[INST]<<SYS>> \n You will be provided with a description of a scene along with a caption. The scene and the caption represent a joke. You are expected to explain the humour of this joke. \n <</SYS>> \n" + nyc_data_train_two[0]['input'] + " [/INST] " + nyc_data_train_two[0]['target'] +  " <\s><s> [INST] " + nyc_data_train_two[1]['input'] + " [/INST] " + nyc_data_train_two[0]['target'] + " <\s><s> [INST] "+ val_inst['input'] + " [/INST] "       
 
         sequences = pipeline(
             prompt,
