@@ -170,4 +170,4 @@ if __name__ == '__main__':
     torch.cuda.manual_seed(args.seed)
 
     newyorker_caption_contest_idefics(args)
-    #newyorker_caption_contest_llama2(args)
+    newyorker_caption_contest_llama2(args)
