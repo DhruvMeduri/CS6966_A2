@@ -21,7 +21,7 @@ def newyorker_caption_contest_data(args):
             #'input' is an image annotation we will use for a llama2 e.g. "scene: the living room description: A man and a woman are sitting on a couch. They are surrounded by numerous monkeys. uncanny: Monkeys are found in jungles or zoos, not in houses. entities: Monkey, Amazon_rainforest, Amazon_(company)."
             #'target': a human-written explanation 
             #'image': a PIL Image object
-            #'caption_choices': is human-written explanation
+            #'caption_choices': the caption
 
         res[spl_name] = cur_spl
     return res
