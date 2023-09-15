@@ -47,13 +47,13 @@ def newyorker_caption_contest_idefics(args):
         # Each instace has a key 'image' that contains the PIL Image. You will give that to the model as input to "show" it the image instead of an url to the image jpg file.
         
         ele =  [
-            "Here is an image:", nyc_data_train_two[0]['image'], "And here is the caption for the image:",nyc_data_train_two[0]['caption_choices'],"Explain the joke in the image and caption.","<end_of_utterance>",
+            "User: Here is an image,", nyc_data_train_two[0]['image'], "And here is the caption for the image, ",nyc_data_train_two[0]['caption_choices']," Explain the joke in the image and caption.","<end_of_utterance>",
             "\nAssistant: ",nyc_data_train_two[0]['target'],"<end_of_utterance>",
 
-            "Here is an image:", nyc_data_train_two[1]['image'], "And here is the caption for the image:",nyc_data_train_two[1]['caption_choices'],"Explain the joke in the image and caption.","<end_of_utterance>",
+            "User: Here is an image,", nyc_data_train_two[1]['image'], "And here is the caption for the image, ",nyc_data_train_two[1]['caption_choices']," Explain the joke in the image and caption.","<end_of_utterance>",
             "\nAssistant: ",nyc_data_train_two[1]['target'],"<end_of_utterance>",
 
-            "Here is an an image:", val_inst['image'], "Here is the caption for the image:",val_inst['caption_choices'],"Explain the joke in the image and caption.","<end_of_utterance>",
+            "User: Here is an an image,", val_inst['image'], "Here is the caption for the image, ",val_inst['caption_choices']," Explain the joke in the image and caption.","<end_of_utterance>",
             "\nAssistant:",
         ]
         prompts.append(ele)
