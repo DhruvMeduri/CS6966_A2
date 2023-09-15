@@ -51,7 +51,7 @@ def newyorker_caption_contest_idefics(args):
             "\nAssistant: The explanation of the joke is -",nyc_data_train_two[0]['target'],"<end_of_utterance>",
 
             "Image:", nyc_data_train_two[1]['image'], "Caption:",nyc_data_train_two[1]['caption_choices'],"<end_of_utterance>",
-            "\nAssistant:",nyc_data_train_two[1]['target'],"<end_of_utterance>",
+            "\nAssistant: The explanation of the joke is -",nyc_data_train_two[1]['target'],"<end_of_utterance>",
 
             "Image:", val_inst['image'], "Caption:",val_inst['caption_choices'],"<end_of_utterance>",
             "\nAssistant:",
@@ -141,7 +141,7 @@ def newyorker_caption_contest_llama2(args):
                '<s>[INST]<<SYS>>',
                ' \n You will be provided with a description of a scene along with a caption. The scene and the caption represent a joke. You are expected to explain the humour of this joke.' 
                '\n <</SYS>> \n',
-                nyc_data_train_two[0]['input'],' [/INST] ',nyc_data_train_two[0]['target'], ' <\s><s> [INST] ' , nyc_data_train_two[1]['input'],' [/INST] ',nyc_data_train_two[0]['target'],' <\s><s> [INST] ', val_inst['input'],' [/INST] '
+                nyc_data_train_two[0]['input'], " [/INST] ",nyc_data_train_two[0]['target']," <\s><s> [INST] ", nyc_data_train_two[1]['input']," [/INST] ",nyc_data_train_two[0]['target']," <\s><s> [INST] ", val_inst['input']," [/INST] ",
 
         ]
 
@@ -151,7 +151,7 @@ def newyorker_caption_contest_llama2(args):
             eos_token_id=tokenizer.eos_token_id,
             max_length=1024,
         )
-        
+        print(sequences)
         gen_expl = sequences[0]['generated_text'].split("/INST] ")[-1]
         nyc_data_five_val[i]['generated_llama2']=gen_expl
 
